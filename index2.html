@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>15 Razones Por Las Que Te Quiero</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff0f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .carta-container {
+      position: relative;
+      width: 700px;
+      max-width: 90%;
+      height: 500px;
+      background: #f8b6c1;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .solapa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #f06292;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transition: transform 0.5s ease;
+      transform-origin: top;
+      z-index: 2;
+    }
+
+    .contenido-carta {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: #fffafa;
+      padding: 20px;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.5s ease;
+      z-index: 1;
+    }
+
+    .corazon {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: #ff3e3e;
+      transform: translate(-50%, -50%) rotate(45deg);
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: #ff3e3e;
+      border-radius: 50%;
+    }
+
+    .corazon::before {
+      top: -20px;
+      left: 0;
+    }
+
+    .corazon::after {
+      top: 0;
+      left: -20px;
+    }
+
+    .texto {
+      color: #6b0f1a;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #d81b60;
+      text-align: center;
+    }
+
+    .razon {
+      margin-bottom: 10px;
+    }
+
+    .Franklin {
+      text-align: right;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <div class="carta-container">
+    <div class="solapa" id="solapa"></div>
+    <div class="corazon" id="corazon"></div>
+    <div class="contenido-carta" id="contenido">
+      <h1> ¿Por qué siento que eres TÚ? 💗</h1>
+      <div class="texto">
+        <ul>
+          <li class="razon">1. Porque en la forma en que me miras me ilumina.</li>
+          <li class="razon">2. Porque verte feliz me causa felicidad.</li>
+          <li class="razon">3. Porque me quieres a pesar de mis defectos y mis cicatrices.</li>
+          <li class="razon">4. Porque haces que mis dias se vuelvan coloridos.</li>
+          <li class="razon">5. Porque me haces querer ser mejor cada día solo para ti.</li>
+          <li class="razon">6. Porque me haces sentir especial con los detalles más simples.</li>
+          <li class="razon">7. Porque contigo volvi a expresar lo que siento.</li>
+          <li class="razon">8. Porque en tus abrazos me siento seguro.</li>
+          <li class="razon">9. Porque en tus besos siento pasion.</li>
+          <li class="razon">10. Porque haces que cada momento contigo sea inolvidable.</li>
+          <li class="razon">11. Porque me llenas el alma con tu empatia y nobleza.</li>
+          <li class="razon">12. Porque tu voz me calma.</li>
+          <li class="razon">13. Porque te preocupas mas por mi de lo que yo lo hago.</li>
+          <li class="razon">14. Porque cuando estás cerca, todo se intensifica.</li>
+          <li class="razon">15. Porque simplemente eres tú… y no hay nadie más como tú.</li>
+        </ul>
+        <p class="Franklin">Con amor, Tu Roe 💗</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const solapa = document.getElementById('solapa');
+    const contenido = document.getElementById('contenido');
+    const corazon = document.getElementById('corazon');
+    let estado = 0;
+
+    corazon.addEventListener('click', () => {
+      if (estado === 0) {
+        solapa.style.transform = 'rotateX(-180deg)';
+        estado = 1;
+      } else if (estado === 1) {
+        contenido.style.transform = 'translateY(0)';
+        estado = 2;
+      } else {
+        contenido.style.transform = 'translateY(100%)';
+        solapa.style.transform = 'rotateX(0deg)';
+        estado = 0;
+      }
+    });
+  </script>
+</body>
+</html>
